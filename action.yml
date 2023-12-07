@@ -1,0 +1,65 @@
+# action.yaml
+name: 'npetalid srcup'
+description: 'A GitHub Action that takes an input and returns the square of the number'
+inputs:
+  name:
+    description: 'Project name:'
+    required: true
+    default: ''
+  comment:
+    description: 'Commit message:' 
+    required: false
+    default:''
+  init:
+    description: 'init project' 
+    required: false
+    default:''
+  owner:
+    description: 'Project owner's username'
+    required: false
+    default: ''
+  framework:
+    description: 'Project framework'
+    required: false
+    default: ''
+  api_key:
+    description: 'API key'
+    required: true
+    default: ''
+  location:
+     description: 'Project location on machine'
+     required: true
+     default: ''
+outputs:
+  project_id:
+    description: 'project id'
+    # need to specify the extra `value` field for `composite` actions
+    value: ${{ steps.get_project_id.outputs.project_id }}
+runs:
+  using: 'composite'
+  steps:
+    - name: Install Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'  
+    - name: Install pipx
+      run:  pip install pipx
+      shell: bash
+    - name: Install srcup
+      run: pipx install git+https://github.com/Dedaub/srcup#egg=srcup
+      shell: bash
+    - name: Pass Inputs to Shell
+      run: |
+              echo "INPUT_NAME=${{ inputs.name }}" >> $GITHUB_ENV
+              echo "INPUT_COMMENT=${{ inputs.comment }}" >> $GITHUB_ENV
+              echo "INPUT_LOCATION=${{ inputs.location }}" >> $GITHUB_ENV
+              echo "INPUT_FRAMEWORK=${{ inputs.framework }}" >> $GITHUB_ENV
+              echo "INPUT_API_KEY=${{ inputs.api_key }}" >> $GITHUB_ENV
+              echo "INPUT_INIT=${{ inputs.init }}" >> $GITHUB_ENV
+              echo "INPUT_OWNER=${{ inputs.owner }}" >> $GITHUB_ENV
+	
+      shell: bash
+    - name: Fetch project id
+      id: get-project-id:
+      run: echo $INPUT_NAME
+      shell: bash
