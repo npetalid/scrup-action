@@ -13,10 +13,10 @@ jobs:
         uses: ./ # Uses an action in the root directory
         # or use a released GitHub Action
         # uses: shipyard/github-action/fetch-shipyard-env@1.0.0
-        with: |
-          name: "myname"
-	  comment: "mycomment"
-          api_key: "mykey"
-          location: "src/"
+        with: 
+          name: 'myname'
+	  comment: 'mycomment'
+          api_key: 'mykey'
+          location: 'src/'
       - name: Print the square
         run: echo "${{ steps.get_project_id.project_id }}"
