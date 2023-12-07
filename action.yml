@@ -5,31 +5,31 @@ inputs:
   name:
     description: 'Project name:'
     required: true
-    default: ''
+    default: ""
   comment:
     description: 'Commit message:' 
     required: false
-    default:''
+    default:""
   init:
     description: 'init project' 
     required: false
-    default:''
+    default:""
   owner:
     description: 'Project owner's username'
     required: false
-    default: ''
+    default: ""
   framework:
     description: 'Project framework'
     required: false
-    default: ''
+    default: ""
   api_key:
     description: 'API key'
     required: true
-    default: ''
+    default: ""
   location:
      description: 'Project location on machine'
      required: true
-     default: ''
+     default: ""
 outputs:
   project_id:
     description: 'project id'
