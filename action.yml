@@ -13,7 +13,7 @@ inputs:
     required: false
     default: ''
   owner:
-    description: 'Project owner's username'
+    description: 'Project owner''s username'
     required: false
   framework:
     description: 'Project framework'
