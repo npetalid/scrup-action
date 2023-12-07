@@ -1,13 +1,11 @@
-# action.yaml
 name: 'npetalid srcup'
 description: 'A GitHub Action that takes an input and returns the square of the number'
 inputs:
   name:
-    description: 'Project name:'
+    description: 'Project name'
     required: true
-    default: ""
   comment:
-    description: 'Commit message:' 
+    description: 'Commit message' 
     required: false
     default:""
   init:
@@ -17,19 +15,16 @@ inputs:
   owner:
     description: 'Project owner's username'
     required: false
-    default: ""
   framework:
     description: 'Project framework'
     required: false
-    default: ""
   api_key:
     description: 'API key'
     required: true
-    default: ""
   location:
      description: 'Project location on machine'
      required: true
-     default: ""
+     default:"."
 outputs:
   project_id:
     description: 'project id'
