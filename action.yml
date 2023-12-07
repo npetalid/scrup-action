@@ -52,7 +52,6 @@ runs:
               echo "INPUT_API_KEY=${{ inputs.api_key }}" >> $GITHUB_ENV
               echo "INPUT_INIT=${{ inputs.init }}" >> $GITHUB_ENV
               echo "INPUT_OWNER=${{ inputs.owner }}" >> $GITHUB_ENV
-	
       shell: bash
     - name: Fetch project id
       id: get-project-id
