@@ -56,5 +56,5 @@ runs:
       shell: bash
     - name: Fetch project id
       id: get-project-id
-      run: echo $INPUT_NAME  >> $GITHUB_OUTPUT
+      run: echo "project_id=$INPUT_NAME"  >> $GITHUB_OUTPUT
       shell: bash
