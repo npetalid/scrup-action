@@ -30,6 +30,7 @@ outputs:
     description: 'project id'
     # need to specify the extra `value` field for `composite` actions
     value: ${{ steps.get_project_id.outputs.project_id }}
+
 runs:
   using: 'composite'
   steps:
