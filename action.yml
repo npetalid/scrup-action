@@ -7,11 +7,11 @@ inputs:
   comment:
     description: 'Commit message' 
     required: false
-    default:''
+    default: ''
   init:
     description: 'init project' 
     required: false
-    default:''
+    default: ''
   owner:
     description: 'Project owner's username'
     required: false
@@ -24,7 +24,7 @@ inputs:
   location:
      description: 'Project location on machine'
      required: true
-     default:'.'
+     default: '.'
 outputs:
   project_id:
     description: 'project id'
