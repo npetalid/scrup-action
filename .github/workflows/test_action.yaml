@@ -15,6 +15,5 @@ jobs:
         # uses: shipyard/github-action/fetch-shipyard-env@1.0.0
         with: 
           name: 'myname'
-      - name: Print the square
-        run: echo "${{ steps.get_something.outputs.project_id }}"
+        run: echo ${{ steps.get_something.outputs.project_id }}
         shell: bash
