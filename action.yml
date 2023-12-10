@@ -84,7 +84,7 @@ runs:
     - name: Fetch project id
       id: get-project-id
       run: |
-          brew install solidity
+          pipx install crytic-compile
           read -r project_id version_id < <(srcup ${{ env.INPUT_API_KEY }} ${{ env.INPUT_FRAMEWORK }} \
                       ${{ env.INPUT_INIT }} ${{ env.INPUT_COMMENT }} ${{ env.INPUT_OWNER }} \
                        ${{ env.INPUT_NAME }} ${{ env.INPUT_LOCATION }} | tail -n -1)
