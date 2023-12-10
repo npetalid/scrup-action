@@ -44,18 +44,39 @@ runs:
     - name: Install srcup
       run: pipx install git+https://github.com/Dedaub/srcup#egg=srcup
       shell: bash
+    - name: Check init
+      if: ${{ inputs.init }} != ""
+      run: |
+        echo "INPUT_INIT=--init" >> $GITHUB_ENV
+    - name: Check framework
+      if: ${{ inputs.framework }} != ""
+      run: |
+        echo "INPUT_FRAMEWORK=--framework ${{ inputs.framework }}" >> GITHUB_ENV
+    - name: Check Comment
+      if: ${{ inputs.comment }} != ""
+      run: |
+        echo "INPUT_COMMENT=--comment ${{ inputs.comment }}" >> $GITHUB_ENV
+    - name: Check Owner
+      if: ${{ inputs.owner }} != ""
+      run: |
+        echo "INPUT_OWNER=--owner-username ${{ inputs.owner }}" >> $GITHUB_ENV
+    - name: Check name
+      if: ${{ inputs.name }} != ""
+      run: |
+          echo "INPUT_NAME=--name ${{ inputs.name }}" >> $GITHUB_ENV
+    - name: Check API key
+      if: ${{ inputs.api_key }} != ""
+      run: |
+          echo "INPUT_API_KEY=--api-key ${{ inputs.api_key }}" >> $GITHUB_ENV
     - name: Pass Inputs to Shell
       run: |
-              echo "INPUT_NAME=${{ inputs.name }}" >> $GITHUB_ENV
-              echo "INPUT_COMMENT=${{ inputs.comment }}" >> $GITHUB_ENV
-              echo "INPUT_LOCATION=${{ inputs.location }}" >> $GITHUB_ENV
-              echo "INPUT_FRAMEWORK=${{ inputs.framework }}" >> $GITHUB_ENV
-              echo "INPUT_API_KEY=${{ inputs.api_key }}" >> $GITHUB_ENV
-              echo "INPUT_INIT=${{ inputs.init }}" >> $GITHUB_ENV
-              echo "INPUT_OWNER=${{ inputs.owner }}" >> $GITHUB_ENV
+              echo "INPUT_NAME=${{ inputs.location }}" >> $GITHUB_ENV
       shell: bash
     - name: Fetch project id
       id: get-project-id
       run: |
+          echo "srcup ${{ env.INPUT_API_KEY }} ${{ env.INPUT_FRAMEWORK }} \
+                      ${{ env.INPUT_INIT }} ${{ env.INPUT_COMMENT }} ${{ env.INPUT_OWNER }} \
+                       ${{ env.INPUT_NAME }} ${{ env.INPUT_NAME }}"
           echo "project_id=${{ env.INPUT_NAME }}"  >> $GITHUB_OUTPUT
       shell: bash
