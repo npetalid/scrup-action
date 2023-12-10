@@ -11,7 +11,7 @@ jobs:
       - name: build staking
         run: |
             cd staking-v0.1
-            npm install
+            npm install --save-dev hardhat
             cd -
         shell: bash
       - name: Fetch latest
