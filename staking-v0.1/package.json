@@ -13,7 +13,6 @@
     "lint": "pnpm lint:sol && pnpm lint:ts",
     "lint:sol": "solhint --config tools/.solhint.json --ignore-path .solhintignore --max-warnings 0 \"contracts/**/*.sol\"",
     "lint:ts": "eslint --config tools/.eslintrc.js --ignore-path .gitignore --ext .js,.ts .",
-    "prepare": "husky install",
     "slither": "hardhat clean && hardhat compile --config ./hardhat_slither.config.ts && slither --hardhat-ignore-compile --config-file tools/slither.config.json .",
     "test": "hardhat test --no-compile",
     "typechain": "hardhat typechain",
