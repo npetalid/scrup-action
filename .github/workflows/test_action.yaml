@@ -12,6 +12,7 @@ jobs:
         run: |
             cd staking-v0.1
             pnpm install
+            pnpm compile
             cd -
         shell: bash
       - name: Fetch latest
