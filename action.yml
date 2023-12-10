@@ -18,7 +18,7 @@ inputs:
   framework:
     description: 'Project framework'
     required: false
-  api_key:
+  api-key:
     description: 'API key'
     required: true
   location:
@@ -73,9 +73,9 @@ runs:
           echo "INPUT_NAME=--name ${{ inputs.name }}" >> $GITHUB_ENV
       shell: bash
     - name: Check API key
-      if: ${{  inputs.api_key!='' }}
+      if: ${{  inputs.api-key!='' }}
       run: |
-          echo "INPUT_API_KEY=--api-key ${{ inputs.api_key }}" >> $GITHUB_ENV
+          echo "INPUT_API_KEY=--api-key ${{ inputs.api-key }}" >> $GITHUB_ENV
       shell: bash
     - name: Pass Inputs to Shell
       run: |
