@@ -44,9 +44,6 @@ runs:
     - name: Install pipx
       run:  pip install pipx
       shell: bash
-    - name: Install solidity
-      run: brew install solidity
-      shell: bash
     - name: Install srcup
       run: pipx install git+https://github.com/Dedaub/srcup#egg=srcup --force
       shell: bash
@@ -87,6 +84,7 @@ runs:
     - name: Fetch project id
       id: get-project-id
       run: |
+          brew install solidity
           read -r project_id version_id < <(srcup ${{ env.INPUT_API_KEY }} ${{ env.INPUT_FRAMEWORK }} \
                       ${{ env.INPUT_INIT }} ${{ env.INPUT_COMMENT }} ${{ env.INPUT_OWNER }} \
                        ${{ env.INPUT_NAME }} ${{ env.INPUT_LOCATION }} | tail -n -1)
