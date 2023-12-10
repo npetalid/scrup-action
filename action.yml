@@ -45,38 +45,38 @@ runs:
       run: pipx install git+https://github.com/Dedaub/srcup#egg=srcup
       shell: bash
     - name: Check init
-      if: ${{ inputs.init }} != ""
+      if: [-n ${{ inputs.init }} ]
       run: |
         echo "INPUT_INIT=--init" >> $GITHUB_ENV
       shell: bash
     - name: Check framework
-      if: ${{ inputs.framework }} != ""
+      if: [-n ${{ inputs.framework }}]
       run: |
         echo "INPUT_FRAMEWORK=--framework ${{ inputs.framework }}" >> GITHUB_ENV
       shell: bash
     - name: Check Comment
-      if: ${{ inputs.comment }} != ""
+      if: [-n ${{ inputs.comment }}]
       run: |
         echo "INPUT_COMMENT=--comment ${{ inputs.comment }}" >> $GITHUB_ENV
       shell: bash
     - name: Check Owner
-      if: ${{ inputs.owner }} != ""
+      if: [-n ${{ inputs.owner }}]
       run: |
         echo "INPUT_OWNER=--owner-username ${{ inputs.owner }}" >> $GITHUB_ENV
       shell: bash
     - name: Check name
-      if: ${{ inputs.name }} != ""
+      if: [-n ${{ inputs.name }}]
       run: |
           echo "INPUT_NAME=--name ${{ inputs.name }}" >> $GITHUB_ENV
       shell: bash
     - name: Check API key
-      if: ${{ inputs.api_key }} != ""
+      if: [-n ${{ inputs.api_key }} ]
       run: |
           echo "INPUT_API_KEY=--api-key ${{ inputs.api_key }}" >> $GITHUB_ENV
       shell: bash
     - name: Pass Inputs to Shell
       run: |
-              echo "INPUT_NAME=${{ inputs.location }}" >> $GITHUB_ENV
+           echo "INPUT_LOCATION=${{ inputs.location }}" >> $GITHUB_ENV
       shell: bash
     - name: Fetch project id
       id: get-project-id
