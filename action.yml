@@ -55,7 +55,7 @@ runs:
     - name: Check framework
       if: ${{ inputs.framework!='' }}
       run: |
-        echo "INPUT_FRAMEWORK=--framework ${{ inputs.framework }}" >> GITHUB_ENV
+        echo "INPUT_FRAMEWORK=--framework ${{ inputs.framework }}" >> $GITHUB_ENV
       shell: bash
     - name: Check Comment
       if: ${{ inputs.comment!='' }}
