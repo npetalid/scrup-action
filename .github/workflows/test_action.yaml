@@ -11,6 +11,8 @@ jobs:
       - name: build staking
         run: |
             cd staking-v0.1
+            echo "MNEMONIC=one two three four five six seven eight nine ten eleven twelve" > .env
+            echo "VIA_IR=true" >> .env
             pnpm install
             pnpm compile
             cd -
