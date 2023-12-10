@@ -45,7 +45,7 @@ runs:
       run:  pip install pipx
       shell: bash
     - name: Install srcup
-      run: pipx install git+https://github.com/Dedaub/srcup#egg=srcup
+      run: pipx install git+https://github.com/Dedaub/srcup#egg=srcup --force
       shell: bash
     - name: Check init
       if: ${{  inputs.init!='' && inputs.init!='false' }}
