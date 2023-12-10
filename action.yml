@@ -45,32 +45,32 @@ runs:
       run: pipx install git+https://github.com/Dedaub/srcup#egg=srcup
       shell: bash
     - name: Check init
-      if: [-n ${{ inputs.init }} ]
+      if: ${{  inputs.init != "" &&   inputs.init !="false" }}
       run: |
         echo "INPUT_INIT=--init" >> $GITHUB_ENV
       shell: bash
     - name: Check framework
-      if: [-n ${{ inputs.framework }}]
+      if: ${{ inputs.framework!="" }}
       run: |
         echo "INPUT_FRAMEWORK=--framework ${{ inputs.framework }}" >> GITHUB_ENV
       shell: bash
     - name: Check Comment
-      if: [-n ${{ inputs.comment }}]
+      if: ${{ inputs.comment!="" }}
       run: |
         echo "INPUT_COMMENT=--comment ${{ inputs.comment }}" >> $GITHUB_ENV
       shell: bash
     - name: Check Owner
-      if: [-n ${{ inputs.owner }}]
+      if: ${{ inputs.owner!="" }}
       run: |
         echo "INPUT_OWNER=--owner-username ${{ inputs.owner }}" >> $GITHUB_ENV
       shell: bash
     - name: Check name
-      if: [-n ${{ inputs.name }}]
+      if: ${{  inputs.name!="" }}
       run: |
           echo "INPUT_NAME=--name ${{ inputs.name }}" >> $GITHUB_ENV
       shell: bash
     - name: Check API key
-      if: [-n ${{ inputs.api_key }} ]
+      if: ${{  inputs.api_key!="" }}
       run: |
           echo "INPUT_API_KEY=--api-key ${{ inputs.api_key }}" >> $GITHUB_ENV
       shell: bash
