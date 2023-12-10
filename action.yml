@@ -86,7 +86,7 @@ runs:
       run: |
           read -r project_id version_id < <(srcup ${{ env.INPUT_API_KEY }} ${{ env.INPUT_FRAMEWORK }} \
                       ${{ env.INPUT_INIT }} ${{ env.INPUT_COMMENT }} ${{ env.INPUT_OWNER }} \
-                       ${{ env.INPUT_NAME }} ${{ env.INPUT_LOCATION }} | tail -n -1)"
+                       ${{ env.INPUT_NAME }} ${{ env.INPUT_LOCATION }} | tail -n -1)
           echo "project_id=$project_id"  >> $GITHUB_OUTPUT
           echo "version_id=$version_id"  >> $GITHUB_OUTPUT
       shell: bash
