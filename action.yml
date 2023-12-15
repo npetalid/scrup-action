@@ -89,6 +89,7 @@ runs:
     - name: Fetch project id
       id: get-project-id
       run: |
+          set +e
           result=$(srcup ${{ env.INPUT_API_KEY }} \
                 ${{ env.INPUT_FRAMEWORK }} \
                     ${{ env.INPUT_INIT }} ${{ env.INPUT_COMMENT }} ${{ env.INPUT_OWNER }} \
@@ -98,7 +99,8 @@ runs:
               echo "project_id=$project_id"  >> $GITHUB_OUTPUT
               echo "version_id=$version_id"  >> $GITHUB_OUTPUT
           else
+            exitcode = $?
             echo ${result}
-            exit 1
+            exit ${exitcode}
           fi
       shell: bash
