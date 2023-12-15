@@ -99,8 +99,7 @@ runs:
               echo "project_id=$project_id"  >> $GITHUB_OUTPUT
               echo "version_id=$version_id"  >> $GITHUB_OUTPUT
           else
-            exitcode = $?
             echo ${result}
-            exit ${exitcode}
+            exit -1
           fi
       shell: bash
