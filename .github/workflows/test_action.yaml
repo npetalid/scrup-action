@@ -27,7 +27,7 @@ jobs:
           location: staking-v0.1
       - name: Get analysis summary
         id: get_project_report
-        uses: npetalid/srcwarnings-ci-action@v0.0.9
+        uses: npetalid/srcwarnings-ci-action@0.0.9
         with:
           project-id: ${{ steps.srcup.outputs.project_id }}
           version-id: ${{ steps.srcup.outputs.version_id }}
