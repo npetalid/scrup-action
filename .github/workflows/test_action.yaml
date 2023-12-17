@@ -21,14 +21,14 @@ jobs:
         id: get_something
         uses: npetalid/srcup-ci-action@v0.0.3
         with: 
-          name: 'myname-a3'
+          name: 'myname-a4'
           init: true
           api-key: ${{ secrets.WATCHDOG_SECRET }}
           framework: 'Hardhat'
           location: staking-v0.1
       - name: Fetch latest
         id: get_project_report
-        uses: npetalid/srcwarnings-ci-action@v0.0.2
+        uses: npetalid/srcwarnings-ci-action@v0.0.3
         with:
           project-id: ${{ steps.get_something.outputs.project_id }}
           version-id: ${{ steps.get_something.outputs.version_id }}
@@ -36,5 +36,6 @@ jobs:
       - name: Print the info
         run: |
           echo ${{ steps.get_project_report.outputs.project_report }}
+          echo ${{ steps.get_project_report.outputs.project_report }} >> $GITHUB_STEP_SUMMARY
           echo "Finished"
         shell: bash
