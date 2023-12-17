@@ -33,6 +33,7 @@ jobs:
           project-id: ${{ steps.get_something.outputs.project_id }}
           version-id: ${{ steps.get_something.outputs.version_id }}
           api-key: ${{ secrets.WATCHDOG_SECRET }}
+          api-url: 'http://localhost:8000/api'
       - name: Print the info
         run: |
           echo ${{ steps.get_project_report.outputs.project_report }}
