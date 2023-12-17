@@ -23,7 +23,7 @@ jobs:
         with: 
           name: 'myname-1'
           init: true
-          api-key: ${{ ${{ secrets.WATCHDOG_SECRET }}
+          api-key: ${{ secrets.WATCHDOG_SECRET }}
           framework: 'Hardhat'
           location: staking-v0.1
       - name: Print the info
