@@ -19,7 +19,7 @@ jobs:
         shell: bash
       - name: Fetch latest
         id: get_something
-        uses: npetalid/src-ci-action@v.0.0.1
+        uses: npetalid/srcup-ci-action@v.0.0.1
         with: 
           name: 'myname-1'
           init: true
