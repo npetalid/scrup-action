@@ -19,11 +19,11 @@ jobs:
         shell: bash
       - name: Fetch latest
         id: get_something
-        uses: ./
+        uses: npetalid/src-ci-action
         with: 
-          name: 'myname'
+          name: 'myname-1'
           init: true
-          api-key: '4b69375c6e2301b5b429c7db2f4f4513a906f9d655493d10b6aeba6c66087f8727851e6abf05b4a97cc8165e8f367ec15f643e3d4b628457a3e6ff7aef8e7e96'
+          api-key: ${{ ${{ secrets.WATCHDOG_SECRET }}
           framework: 'Hardhat'
           location: staking-v0.1
       - name: Print the info
