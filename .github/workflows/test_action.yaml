@@ -21,7 +21,7 @@ jobs:
         id: get_something
         uses: npetalid/srcup-ci-action@v.0.0.1
         with: 
-          name: 'myname-1'
+          name: 'myname-a1'
           init: true
           api-key: ${{ secrets.WATCHDOG_SECRET }}
           framework: 'Hardhat'
