@@ -37,5 +37,4 @@ jobs:
         run: |
           echo ${{ steps.get_project_report.outputs.project_report }}
           echo ${{ steps.get_project_report.outputs.project_report }} >> $GITHUB_STEP_SUMMARY
-          echo "Finished"
         shell: bash
