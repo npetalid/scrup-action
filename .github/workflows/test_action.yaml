@@ -34,7 +34,7 @@ jobs:
           api-key: ${{ secrets.WATCHDOG_SECRET }}
           api-url: 'http://localhost:8000/api'
       - name: Print the info
-        run: |
+        run: | 
           echo ${{ steps.get_project_report.outputs.project_report }}
           echo ${{ steps.get_project_report.outputs.project_report }} >> $GITHUB_STEP_SUMMARY
         shell: bash
