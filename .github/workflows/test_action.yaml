@@ -2,9 +2,9 @@ name: Test Action
 on: [push]
 
 jobs:
-  get-num-square:
+  staging-build:
     runs-on: self-hosted
-    name: Returns some info
+    name: Analyse staking v-0.1
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -17,20 +17,20 @@ jobs:
             pnpm compile
             cd -
         shell: bash
-      - name: Fetch latest
-        id: get_something
+      - name: Run srcup
+        id: srcup
         uses: npetalid/srcup-ci-action@v0.0.3
         with: 
           name: 'myname-a5'
           api-key: ${{ secrets.WATCHDOG_SECRET }}
           framework: 'Hardhat'
           location: staking-v0.1
-      - name: Fetch latest
+      - name: Get analysis summary
         id: get_project_report
-        uses: npetalid/srcwarnings-ci-action@v0.0.5
+        uses: npetalid/srcwarnings-ci-action@v0.0.6
         with:
-          project-id: ${{ steps.get_something.outputs.project_id }}
-          version-id: ${{ steps.get_something.outputs.version_id }}
+          project-id: ${{ steps.srcup.outputs.project_id }}
+          version-id: ${{ steps.srcup.outputs.version_id }}
           api-key: ${{ secrets.WATCHDOG_SECRET }}
           api-url: 'http://localhost:8000/api'
       - name: Print the info
