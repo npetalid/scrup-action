@@ -22,13 +22,12 @@ jobs:
         uses: npetalid/srcup-ci-action@v0.0.3
         with: 
           name: 'myname-a5'
-          init: true
           api-key: ${{ secrets.WATCHDOG_SECRET }}
           framework: 'Hardhat'
           location: staking-v0.1
       - name: Fetch latest
         id: get_project_report
-        uses: npetalid/srcwarnings-ci-action@v0.0.4
+        uses: npetalid/srcwarnings-ci-action@v0.0.5
         with:
           project-id: ${{ steps.get_something.outputs.project_id }}
           version-id: ${{ steps.get_something.outputs.version_id }}
