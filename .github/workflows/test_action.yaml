@@ -19,7 +19,7 @@ jobs:
         shell: bash
       - name: Run srcup
         id: srcup
-        uses: npetalid/srcup-ci-action@v0.0.3
+        uses: dedaub/srcup-ci-action@v0.0.1
         with: 
           name: 'myname-a5'
           api-key: ${{ secrets.WATCHDOG_SECRET }}
@@ -27,7 +27,7 @@ jobs:
           location: staking-v0.1
       - name: Get analysis summary
         id: get_project_report
-        uses: npetalid/srcwarnings-ci-action@0.0.9
+        uses: dedaub/srcwarnings-ci-action@v0.0.1
         with:
           project-id: ${{ steps.srcup.outputs.project_id }}
           version-id: ${{ steps.srcup.outputs.version_id }}
