@@ -21,7 +21,7 @@ jobs:
         id: srcup
         uses: dedaub/srcup-ci-action@v0.0.1
         with: 
-          name: 'myname-a6'
+          name: 'myname-a5'
           api-key: ${{ secrets.WATCHDOG_SECRET }}
           framework: 'Hardhat'
           location: staking-v0.1
