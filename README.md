@@ -1,1 +1,2 @@
 Demo scrup action
+:wq
