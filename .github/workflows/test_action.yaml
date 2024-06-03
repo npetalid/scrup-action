@@ -19,7 +19,7 @@ jobs:
         shell: bash
       - name: Run srcup
         id: srcup
-        uses: dedaub/srcup-ci-action@v0.0.1
+        uses: dedaub/srcup-ci-action@v0.0.2
         with: 
           name: 'myname-a5'
           api-key: ${{ secrets.WATCHDOG_SECRET }}
@@ -32,7 +32,6 @@ jobs:
           project-id: ${{ steps.srcup.outputs.project_id }}
           version-id: ${{ steps.srcup.outputs.version_id }}
           api-key: ${{ secrets.WATCHDOG_SECRET }}
-          api-url: 'http://localhost:8000/api'
       - name: Print the info
         run: | 
           echo ${{ steps.get_project_report.outputs.project_report }}
