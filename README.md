@@ -1,2 +1,2 @@
-:w# scrup-action
+ scrup-action
 Demo scrup action
